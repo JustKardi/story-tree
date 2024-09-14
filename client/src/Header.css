@@ -1,0 +1,28 @@
+.header {
+    background-color: #323232;
+    width: 95vw;
+    height: 10vh;
+    margin: auto;
+    border-radius: 50px;
+    border-bottom: 2px solid #7ed957;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.header--title {
+    color: white;
+    margin-left: 2%;
+}
+.header--title__span {
+    color: #7ed957;
+    text-decoration: underline;
+}
+.header--link {
+    color: white;
+    cursor: pointer;
+}
+
+.header--link__right {
+    margin-right: 3%;
+    color: #7ed957;
+}

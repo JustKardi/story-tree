@@ -1,5 +1,5 @@
 let Express = require('express');
-let Mongoclient = require('mongdb').Mongoclient;
+let { MongoClient } = require('mongodb'); // Correct casing for MongoClient
 let cors = require('cors');
 const multer = require('multer');
 
@@ -11,8 +11,13 @@ let CONNECTION_STRING = "mongodb+srv://Karthick_Ponkali:54q2A9N6mDPaWn2N@storytr
 let DATABASE_NAME = "StoryTree";
 let database;
 
-app.listen(5038, ()=>{
-    Mongoclient.connect(CONNECTION_STRING, (error, client)=>{
+app.listen(5038, async () => {
+    try {
+        console.log('Connecting to MongoDB...');
+        const client = await MongoClient.connect(CONNECTION_STRING, { useNewUrlParser: true, useUnifiedTopology: true });
         database = client.db(DATABASE_NAME);
-    })
-})
+        console.log('Database Connected');
+    } catch (error) {
+        console.error('Error connecting to MongoDB:', error);
+    }
+});
